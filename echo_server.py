@@ -24,12 +24,13 @@ class EchoServer(asyncore.dispatcher):
         client_info = self.accept()
         self.logger.debug('handle_accept() -> %s', client_info[1])
         EchoHandler(sock=client_info[0])
+        self.socket.send("a")
         # We only want to deal with one client at a time,
         # so close as soon as we set up the handler.
         # Normally you would not do this and the server
         # would run forever or until it received instructions
         # to stop.
-        self.handle_close()
+        #self.handle_close()
         return
 
     def handle_close(self):
