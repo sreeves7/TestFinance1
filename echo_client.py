@@ -68,4 +68,12 @@ if __name__ == '__main__':
 
      # Calling the class for communicating with the server
      client = EchoClient(IP, port, message=input("Enter your message"))
+     keepgoing = True
+     x = 0
+     while keepgoing == True
+        if input("Would you like to send another message?") == "yes" or "y" or "Yes" or "Y":
+            str(x) = EchoClient(IP, port, message=input("Enter your next message to send"))
+        else
+            keepgoing = False
+        x = x + 1
      asyncore.loop()
