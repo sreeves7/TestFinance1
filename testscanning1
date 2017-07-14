@@ -1,6 +1,6 @@
 #this file will scan through until it finds the intended date
 #then it will find the respective line in the respective stock file
-#(using the counter). then return that value
+#(using the counter). then return that value 
 
 question = input("Would you like to trade stocks? ")
 
