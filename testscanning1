@@ -1,0 +1,41 @@
+#this file will scan through until it finds the intended date
+#then it will find the respective line in the respective stock file
+#(using the counter). then return that value
+
+question = input("Would you like to trade stocks? ")
+
+if question == "no" or "n" or "No" or "N" or "nah":
+#    print "if Come trade again another time!"
+#elif question == "yes" or "y" or "Yes" or "Y" or "sure" or yes or 'yes':
+    stockName = raw_input("Enter the stock that you would like to trade: ")
+    date = raw_input("Enter the date that you would like to search up in mm/dd/yy format: ")
+    datetemp = " "
+    price = 0
+    stockNameActual = ""
+    dates = open('dates.txt', 'r' )
+    apple = open('apple.txt', 'r' )
+    counter = 0
+    counter = counter - 1
+
+
+    with open('dates.txt') as fp:
+        for line in fp:
+            datetemp = line
+            counter = counter + 1
+            if datetemp == date:
+                lineNumber = counter
+
+#now that you have the right date and lineNumber, cycle thr until you find
+# the corresponding price
+    if stockName == Apple:
+        stockNameActual = apple
+
+    price = stockNameActual.readline(lineNumber)
+
+    print "The price of " + stockName + " at " + date + " was $" + price
+
+#x[1:3]
+######   Keep a HISTORY file of all transactions
+
+else:
+    print "else Come trade again another time!"
