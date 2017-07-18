@@ -7,7 +7,7 @@ question = input("Would you like to trade stocks? ('answer') ")
 if question == "no" or "n" or "No" or "N" or "nah":
 #    print "if Come trade again another time!"
 #elif question == "yes" or "y" or "Yes" or "Y" or "sure" or yes or 'yes':
-    stockName = raw_input("Would like to trade 'Apple', 'Amazon', or 'Google': ")
+    stockName = raw_input("Enter 1 to trade Apple, 2 for Amazon, or 3 for Google: ")
     date = raw_input("Enter the 2016 date that you would like to search up in 'mm/dd/yy' format: ")
     datetemp = " "
     price = 0
@@ -31,68 +31,48 @@ if question == "no" or "n" or "No" or "N" or "nah":
     if monthNumber == 1:
         lineNumber = dayNumber - 3
     elif monthNumber == 3 or 5 or 7 or 8 or 10 or 12:
-        lineNumber = (monthNumber-1) * 31 + dayNumber - 3
+        lineNumber = (monthNumber-1) * 31 + dayNumber - 9
         lineNumber = int(lineNumber)
     else:
-        lineNumber = (monthNumber-1) * 30 + dayNumber - 3
+        lineNumber = (monthNumber-1) * 30 + dayNumber - 8
         lineNumber = int(lineNumber)
 
     print lineNumber
 #now that you have the right date and lineNumber, cycle thru until you find
 # the corresponding price
-    if stockName == 'Apple':
-        print "WORKING APPLE"
+    stockName = int(stockName)
+
+    if stockName == 1:
+        stockName = "Apple"
+        print "WORKING Apple"
         for line in apple:
-            if priceCounter == lineNumber:
-                price = line
-                print line
-            priceCounter = priceCounter + 1
-    if stockName == "Apple":
-        print "WORKING APPLE3"
-        for line in apple:
-            if priceCounter == lineNumber:
-                price = line
-                print line
-            priceCounter = priceCounter + 1
-    if stockName == 'apple':
-        print "WORKING aPPLE"
-        for line in apple:
-            if priceCounter == lineNumber:
-                price = line
-                print line
-            priceCounter = priceCounter + 1
-    if stockName == "apple":
-        print "WORKING aPPLE3"
-        for line in apple:
-            if priceCounter == lineNumber:
+            if priceCounter == lineNumber + 1:
                 price = line
                 print line
             priceCounter = priceCounter + 1
 
-    if stockName == 'Amazon':
+    if stockName == 2:
+        stockName = "Amazon"
+        print "WORKING Amazon"
         for line in amazon:
-            if priceCounter == lineNumber:
-                price = line
-                print line
-            priceCounter = priceCounter + 1
-    if stockName == 'Google':
-        for line in google:
-            if priceCounter == lineNumber:
+            if priceCounter == lineNumber + 1:
                 price = line
                 print line
             priceCounter = priceCounter + 1
 
-    print "WORKING APPLE"
-    print stockName
-    for line in apple:
-        if priceCounter == lineNumber:
-            price = line
-            print line
-        priceCounter = priceCounter + 1
+    if stockName == 3:
+        stockName = "Google"
+        print "WORKING Google"
+        for line in google:
+            if priceCounter == lineNumber + 1:
+                price = line
+                print line
+            priceCounter = priceCounter + 1
 
 #CONVERT EVERYTHING TO STRINGS THEN IT WILL print
     stockName1 = str(stockName)
-    print stockName1
+    print "Selected stock is " + stockName1
+
     date1 = str(date)
     price1 = str(price)
     stockResult = "The price of " + stockName1 + " at " + date1 + " was " + price1
