@@ -8,7 +8,7 @@ if question == "no" or "n" or "No" or "N" or "nah":
 #    print "if Come trade again another time!"
 #elif question == "yes" or "y" or "Yes" or "Y" or "sure" or yes or 'yes':
     stockName = raw_input("Enter 1 to trade Apple, 2 for Amazon, or 3 for Google: ")
-    date = raw_input("Enter the 2016 date that you would like to search up in 'mm/dd/yy' format: ")
+    date = raw_input("Enter the 2016 date that you would like to search up in mm/dd/yy format: ")
     datetemp = " "
     price = 0
     stockNameActual = ""
@@ -22,51 +22,65 @@ if question == "no" or "n" or "No" or "N" or "nah":
 
     #transHistory = open('TRANSACTION_HISTORY', 'w')
 
-    month = date[1:3]
-    day = date[4:6]
+    month = date[:2]
+    day = date[3:5]
 
     monthNumber = int(month)
     dayNumber = int(day)
 
     if monthNumber == 1:
         lineNumber = dayNumber - 3
-    elif monthNumber == 3 or 5 or 7 or 8 or 10 or 12:
-        lineNumber = (monthNumber-1) * 31 + dayNumber - 9
-        lineNumber = int(lineNumber)
+    elif monthNumber == 2:
+        lineNumber = dayNumber + 28
+    elif monthNumber == 3:
+        lineNumber = dayNumber + 57
+    elif monthNumber == 4:
+        lineNumber = dayNumber + 88
+    elif monthNumber == 5:
+        lineNumber = dayNumber + 118
+    elif monthNumber == 6:
+        lineNumber = dayNumber + 149
+    elif monthNumber == 7:
+        lineNumber = dayNumber + 179
+    elif monthNumber == 8:
+        lineNumber = dayNumber + 210
+    elif monthNumber == 9:
+        lineNumber = dayNumber + 241
+    elif monthNumber == 10:
+        lineNumber = dayNumber + 271
+    elif monthNumber == 11:
+        lineNumber = dayNumber + 302
+    elif monthNumber == 12:
+        lineNumber = dayNumber + 332
     else:
         lineNumber = (monthNumber-1) * 30 + dayNumber - 8
         lineNumber = int(lineNumber)
 
-    print lineNumber
+    lineNumber1 = str(lineNumber)
+    print "Line number is " + lineNumber1
 #now that you have the right date and lineNumber, cycle thru until you find
 # the corresponding price
     stockName = int(stockName)
 
     if stockName == 1:
         stockName = "Apple"
-        print "WORKING Apple"
         for line in apple:
-            if priceCounter == lineNumber + 1:
+            if priceCounter == lineNumber - 1:
                 price = line
-                print line
             priceCounter = priceCounter + 1
 
     if stockName == 2:
         stockName = "Amazon"
-        print "WORKING Amazon"
         for line in amazon:
-            if priceCounter == lineNumber + 1:
+            if priceCounter == lineNumber - 1:
                 price = line
-                print line
             priceCounter = priceCounter + 1
 
     if stockName == 3:
         stockName = "Google"
-        print "WORKING Google"
         for line in google:
-            if priceCounter == lineNumber + 1:
+            if priceCounter == lineNumber - 1:
                 price = line
-                print line
             priceCounter = priceCounter + 1
 
 #CONVERT EVERYTHING TO STRINGS THEN IT WILL print
