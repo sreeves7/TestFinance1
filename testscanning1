@@ -54,7 +54,10 @@ if question == "no" or "n" or "No" or "N" or "nah":
             priceCounter = priceCounter + 1
 
 #CONVERT EVERYTHING TO STRINGS THEN IT WILL print
-    stockResult = "The price of " + stockName + " at " + date + " was " + price
+    stockName1 = str(stockName)
+    date1 = str(date)
+    price1 = str(price)
+    stockResult = "The price of " + stockName1 + " at " + date1 + " was " + price1
     print stockResult
     #transHistory.write(stockResult)
 
