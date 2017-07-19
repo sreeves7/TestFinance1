@@ -7,3 +7,6 @@ We will then attack the market.
 
 
 with loop: create randomizer to keep it going rapidly all the time to DDOS
+
+matploclib
+matplotbib
