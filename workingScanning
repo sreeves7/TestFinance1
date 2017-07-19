@@ -83,7 +83,7 @@ if question == "yes" or "y" or "Yes" or "Y" or "sure":
             priceCounter = priceCounter + 1
 
     if stockName > 3:
-        stockName = "/NA\"
+        stockName = "NA"
         print "Please enter a number from 1-3"
 
     stockName1 = str(stockName)
