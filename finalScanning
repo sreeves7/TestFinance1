@@ -1,22 +1,33 @@
 
+numApple = 9999
+numAmazon = 9999
+numGoogle = 9999
 
 while 1:
-    question = input("Would you like to buy more stocks? Enter 1 for yes or 2 for no: ")
+    question = input("Would you like to buy more stocks? 1==yes | 2==no: ")
     question1 = int(question)
 
     if question == 1:
 
-        stockName = raw_input("Enter your preffered stock. 1=Apple, 2=Amazon, 3=Google: ")
-        date = raw_input("Enter the 2016 date that you would like to search up in mm/dd/yy format: ")
+        #if numAmazon < 1000 or numApple < 1000 or numGoogle < 1000:
+        #    print "Not enough stocks left to trade"
+        #    print ""
+        #    print ""
+        #    break
+
+        stockNum = raw_input("Enter your preffered stock. 1=Apple, 2=Amazon, 3=Google: ")
+        date = raw_input("Enter the 2016 date that you would like to search up in mm/dd/yy format: \n")
         datetemp = " "
         price = 0
         stockNameActual = ""
+        transHistory1 = open('TRANSACTION_HISTORY', 'r')
         dates = open('dates.txt', 'r' )
         apple = open('apple.txt', 'r' )
         amazon = open('amazon.txt', 'r' )
         google = open('google.txt', 'r' )
         counter = 0
         priceCounter = 0
+        stockName = ""
         stockResult = ""
 
         month = date[:2]
@@ -55,21 +66,21 @@ while 1:
         lineNumber1 = str(lineNumber)
         #print "Line number is " + lineNumber1
 
-        stockName = int(stockName)
+        stockNum = int(stockNum)
 
-        if stockName == 1:
+        if stockNum == 1:
             stockName = "Apple"
             for line in apple:
                 if priceCounter == lineNumber - 1:
                     price = line
                 priceCounter = priceCounter + 1
-        elif stockName == 2:
+        elif stockNum == 2:
             stockName = "Amazon"
             for line in amazon:
                 if priceCounter == lineNumber - 1:
                     price = line
                 priceCounter = priceCounter + 1
-        elif stockName == 3:
+        elif stockNum == 3:
             stockName = "Google"
             for line in google:
                 if priceCounter == lineNumber - 1:
@@ -100,8 +111,50 @@ while 1:
         totalresult = "Total price of " + shares2 + " shares of stock is $" + total1
         print totalresult
 
+
+        lineCounter = 0
+        lineCounterV2 = 0
+        lineInTrans = 0
+        lineInTrans3 = 0
+        for line in transHistory1:
+            lineInTrans = line
+            if lineCounter % 3 == 0:
+                lineInTrans3 = line
+            lineCounter = lineCounter + 1
+        lineCounter1 = str(lineCounter)
+        print "Line count is " + lineCounter1
+
+        print lineInTrans3
+
+        #numApple = lineInTrans3[:4]
+        #numAmazon = lineInTrans3[18:22]
+        #numGoogle = lineInTrans3[37:41]
+        numApple = int(numApple)
+        numAmazon = int(numAmazon)
+        numGoogle = int(numGoogle)
+
+        if stockNum == 1:
+            stockName = "Apple"
+            print numApple
+            numApple = numApple - shares1
+            print numApple
+        elif stockNum == 2:
+            stockName = "Amazon"
+            numApple = numApple - shares1
+        elif stockNum == 3:
+            stockName = "Google"
+            numApple = numApple - shares1
+
+        numApple1 = str(numApple)
+        numAmazon1 = str(numAmazon)
+        numGoogle1 = str(numGoogle)
+        stocksLeft = numApple1 + " of Apple ||| " + numAmazon1 + " of Amazon ||| " + numGoogle1 + " of Google"
+
+
         #Keep a HISTORY file of all transactions
         transHistory = open('TRANSACTION_HISTORY', 'a')
+        transHistory.write(stocksLeft)
+        transHistory.write('\n')
         transHistory.write(totalresult)
         transHistory.write('\n')
         transHistory.write('\n')
