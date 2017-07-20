@@ -6,7 +6,7 @@ while 1:
 
     if question == 1:
 
-        stockName = raw_input("Enter 1 to trade Apple, 2 for Amazon, or 3 for Google: ")
+        stockName = raw_input("Enter your preffered stock. 1=Apple, 2=Amazon, 3=Google: ")
         date = raw_input("Enter the 2016 date that you would like to search up in mm/dd/yy format: ")
         datetemp = " "
         price = 0
@@ -104,12 +104,16 @@ while 1:
         transHistory = open('TRANSACTION_HISTORY', 'a')
         transHistory.write(totalresult)
         transHistory.write('\n')
+        transHistory.write('\n')
         transHistory.write("")
         transHistory.close()
 
         print " "
         print " "
+        print " "
 
     else:
         print "Come trade again another time!"
+        print " "
+        print " "
         break
