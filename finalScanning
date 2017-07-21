@@ -138,10 +138,10 @@ while 1:
             numApple = numApple - shares1
         elif stockNum == 2:
             stockName = "Amazon"
-            numApple = numApple - shares1
+            numAmazon = numAmazon - shares1
         elif stockNum == 3:
             stockName = "Google"
-            numApple = numApple - shares1
+            numAmazon = numAmazon - shares1
 
         numApple1 = str(numApple)
         numAmazon1 = str(numAmazon)
