@@ -124,7 +124,7 @@ while 1:
         lineCounter1 = str(lineCounter)
         print "Line count is " + lineCounter1
 
-        print lineInTrans3
+        #print lineInTrans3
 
         #numApple = lineInTrans3[:4]
         #numAmazon = lineInTrans3[18:22]
@@ -135,9 +135,7 @@ while 1:
 
         if stockNum == 1:
             stockName = "Apple"
-            print numApple
             numApple = numApple - shares1
-            print numApple
         elif stockNum == 2:
             stockName = "Amazon"
             numApple = numApple - shares1
